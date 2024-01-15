@@ -1,0 +1,22 @@
+$primary-title: #151516;
+$secondary-txt: #666363;
+$secondary-title: #888888;
+$white: #fff;
+$accent: #407BFF;
+
+
+
+$big-screen-bp: 1191px;
+$tablet-bp: 991px;
+$mobile-bp: 604px;
+
+
+
+@mixin breakpoint($bp){
+	
+	@media (max-width: $bp) {
+		@content;
+	}
+
+}
+
