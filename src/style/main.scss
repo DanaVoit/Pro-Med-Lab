@@ -1,106 +1,180 @@
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.container{
-    margin: 0 auto;
-    max-width: 1300px;
-    padding: 0 100px;
 
-    @include breakpoint ($mobile-bp) {
-       
-        padding: 15px;
-    }
+.container {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 50px;
 
-    @include breakpoint ($tablet-bp) {
-       
-        padding: 35px;
-    }
+  @include breakpoint($mobile-bp) {
+    padding: 15px;
+  }
 
- 
+  @include breakpoint($tablet-bp) {
+    padding: 35px;
+  }
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	margin: 0;
-	line-height: 1.5;
-	color: #333;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
 }
 
+button {
+  background-color: $accent;
+  padding: 17px 27px;
+  border: none;
+  color: $white;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
 
-button{
+  &:hover {
+    border: $accent 1px solid;
+    color: $secondary-txt;
+    background-color: $white;
+    padding: 16px 26px;
+    transition: all linear 0.2s;
+  }
 
-    background-color: $accent;
-    padding: 17px 27px;
-    border: none;
-    color: $white;
-    border-radius: 6px;
+  @include breakpoint($mobile-bp) {
     font-size: 18px;
-    font-weight: 600;
+    padding: 11px;
+  }
 
-    @include breakpoint ($mobile-bp) {
-        font-size: 18px;
-        padding: 11px;
-    }
-
-    @include breakpoint ($tablet-bp) {
-        font-size: 20px;
-        padding: 15px;
-    }
+  @include breakpoint($tablet-bp) {
+    font-size: 20px;
+    padding: 15px;
+  }
 }
 
 //Header
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+  background-color: $white;
 
-.header{
+  border-bottom: $secondary-title 1px solid;
+
+  &-logo {
     display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    &-title {
+      font-weight: 700;
+      font-size: 38px;
+      color: $accent;
+      margin-left: 10px;
+      &--accent {
+        color: $primary-title;
+      }
+
+      @include breakpoint($mobile-bp) {
+        font-size: 28px;
+      }
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  &-nav {
+    display: flex;
+    li {
+      color: $secondary-title;
+      font-weight: 400;
+      font-size: 20px;
+      margin-right: 50px;
+      &:hover {
+        color: $primary-title;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      cursor: pointer;
+    }
+  }
+}
+
+
+//home
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+
+  &-header {
+    display: flex;
     align-items: center;
-    background-color: $white;
+  }
 
-    border-bottom: $secondary-title 1px solid;
-
-    &-logo{
-        display: flex;
-        &-title{
-            font-weight: 700;
-            font-size: 38px;
-            color: $accent;
-            margin-left: 10px;
-            &--accent{
-                color: $primary-title
-
-            }
-
-            @include breakpoint ($mobile-bp) {
-                font-size: 28px;
-            }
-
-            img{
-                width: 20px;
-            }
-
-           
-        }
+  &-info {
+    &-title {
+      font-size: 62px;
+      color: $primary-title;
+      font-weight: 700;
+      &--accent {
+        color: $accent;
+      }
     }
-
-    &-nav{
-        display: flex;
-       li{
-        color: $secondary-title;
+    &-btn {
+      display: flex;
+      margin-top: 60px;
+      & button {
+        font-style: italic;
         font-weight: 400;
-        font-size: 20px;
-        margin-right: 50px;
-        &:hover{
-            color:$primary-title;
+        font-size: 18px;
+        &:first-child {
+          margin-right: 50px;
         }
-        &:last-child{
-            margin-right: 0;
-        }
-       }
-       
+      }
     }
+  }
+
+  &-img {
+    width: 600px;
+  }
+
+  &-footer {
+    background-color: $primary-title;
+    color: $white;
+    padding: 20px 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+
+    & li {
+      margin-right: 140px;
+
+      &:last-child {
+        margin-right: 0;
+        border-right: none;
+      }
+      &:nth-child(2) {
+        padding: 0 90px;
+        border-right: 1px $secondary-title solid;
+        border-left: 1px $secondary-title solid;
+      }
+    }
+
+    &-number {
+      font-size: 48px;
+      font-weight: 700;
+    }
+    &-title {
+      opacity: 0.72;
+      font-size: 15px;
+    }
+  }
 }
